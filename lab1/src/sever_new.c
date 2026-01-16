@@ -1,8 +1,3 @@
-/*
- * A simple TCP server in the internet domain
- * The port number is passed as a command-line argument
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
