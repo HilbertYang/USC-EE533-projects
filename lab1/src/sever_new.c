@@ -42,10 +42,10 @@ int main(int argc, char *argv[])
 
     /* Initialize server address structure */
     memset((char *)&serv_addr, 0, sizeof(serv_addr));
-    portno = atoi(argv[1]);
+    portno = atoi(argv[1]);//convert port number from string to integer
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = INADDR_ANY;
-    serv_addr.sin_port = htons(portno);
+    serv_addr.sin_port = htons(portno);//short to network byte order
 
     /* Bind socket to port */
     if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
