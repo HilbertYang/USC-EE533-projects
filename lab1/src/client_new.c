@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     serv_addr.sin_family = AF_INET;
     bcopy((char *)server->h_addr,
           (char *)&serv_addr.sin_addr.s_addr,
-          server->h_length);
+          server->h_length);//->equal to the (*server).h_addr
     serv_addr.sin_port = htons(portno);
 
     /* Connect to server */
