@@ -1,7 +1,7 @@
 # EE533 Project: ARM-Based Multi-Core SmartNIC Network Processor with GPU Acceleration
 
 ## Overview
-This project focuses on the **design, implementation, and programming of a custom ARM-based multi-core network processor and hardware accelerators** using **reconfigurable hardware** deployed on a **SmartNIC**.  
+This project focuses on the **design, implementation, and programming of a custom ARM-based multi-core network processor and hardware accelerators** using **reconfigurable hardware** deployed on a **SmartNIC platform built using netFPGA**.  
 The system integrates **GPU acceleration using CUDA** and **RDMA-based high-speed communication**, and is evaluated in a **realistic network testbed**.
 
 The project is developed as part of **USC EE533** and explores hardware–software co-design for high-performance, programmable networking systems.
