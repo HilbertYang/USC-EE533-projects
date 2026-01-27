@@ -1,41 +1,60 @@
-# EE533 Project: ARM-Based Multi-Core SmartNIC Network Processor with GPU Acceleration
+# Hardware-Accelerated Networking & Compute Toolkit
 
-## Overview
-This project focuses on the **design, implementation, and programming of a custom ARM-based multi-core network processor and hardware accelerators** using **reconfigurable hardware** deployed on a **SmartNIC platform built using netFPGA**.  
-The system integrates **GPU acceleration using CUDA** and **RDMA-based high-speed communication**, and is evaluated in a **realistic network testbed**.
+This repository is a collection of modular experiments exploring **hardware acceleration
+for networking and high-performance computing**.  
+The focus is on **FPGA-based data paths, custom processor architectures, and GPU offloading**,
+with an emphasis on **performance measurement, reproducibility, and system-level design**.
 
-The project is developed as part of **USC EE533** and explores hardware–software co-design for high-performance, programmable networking systems.
-
----
-
-## Project Objectives
-- Design a **custom multi-core ARM-based network processor**
-- Implement **hardware accelerators** for packet-processing tasks
-- Integrate **CUDA-based GPU acceleration** for compute-intensive workloads
-- Support **RDMA** for low-latency, high-throughput data movement
-- Deploy and evaluate the system on a **SmartNIC platform**
-- Validate functionality and performance in a realistic network environment
+Rather than a single monolithic project, the repository is organized as a **toolkit of
+independent yet conceptually connected modules**, each targeting a specific acceleration
+or architectural technique.
 
 ---
 
-## System Architecture
-The system consists of:
-- **Multi-core ARM processing subsystem**
-- **FPGA-based hardware accelerators** for network functions
-- **GPU acceleration** via CUDA for offloaded computation
-- **RDMA-enabled data paths** between SmartNIC, host, and GPU
-- **SmartNIC platform** for packet I/O and acceleration
-- **Host-side control software** for configuration and orchestration
+## Key Focus Areas
 
-### High-Level Data Flow
-1. Packets arrive at the SmartNIC  
-2. ARM cores perform control-plane or lightweight data-plane processing  
-3. Performance-critical tasks are offloaded to:
-   - FPGA-based hardware accelerators, or
-   - GPU kernels via CUDA  
-4. RDMA is used for zero-copy, low-latency data transfers  
-5. Packets or processed results are forwarded accordingly  
+- FPGA design flows and resource analysis (synthesis, mapping, gate counts)
+- SmartNIC-style packet processing pipelines and register interfaces
+- Custom processor datapaths and multithreaded execution models
+- GPU offloading using CUDA with host–device integration
+- Performance benchmarking and experimental reproducibility
 
 ---
 
 ## Repository Structure
+
+Each module is designed to be **self-contained**, with its own source code, build/run
+instructions, and experimental results.
+
+modules/
+├─ fpga_design_flow/ # FPGA synthesis, mapping, resource analysis
+├─ packet_processing/ # Streaming pipelines and register-controlled logic
+├─ custom_processor_core/ # Datapath and multithreading experiments
+├─ gpu_offload_matmul/ # CUDA tiled matrix multiplication + host integration
+├─ network_testbed/ # RTT and bandwidth measurement experiments
+└─ ...
+
+
+Shared utilities and cross-module artifacts are organized separately:
+
+common/ # Shared headers, scripts, and utilities
+results/ # Benchmark data and plots (CSV, figures)
+docs/ # Setup guides, design notes, and reports
+
+
+---
+
+## How to Use This Repository
+
+Each module under `labs/` contains its own `README.md` describing:
+
+- The problem being explored
+- Design and implementation approach
+- Build and execution steps
+- Expected outputs and performance metrics
+
+---
+
+## License
+
+This project is released under the MIT License unless otherwise noted.
